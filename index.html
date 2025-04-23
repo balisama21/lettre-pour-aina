@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lettre du soir pour Aina 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fefaf6;
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .envelope {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 2.5rem;
+      color: #b06ab3;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+      white-space: pre-line;
+      opacity: 0;
+      animation: type 8s steps(100, end) forwards;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
+      color: #7c4dff;
+    }
+
+    @keyframes type {
+      0% { opacity: 0; }
+      1% { opacity: 1; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope">
+    <h1>Lettre pour Aina 🌙</h1>
+    <p>
+Ma chère Aina,
+
+Il est tard, la lune s’est levée, et je pense à toi.
+
+Il n’y a que quelques jours que nos mots se croisent… mais dans ce court temps, tu as déjà laissé une belle trace.
+
+Ce soir, je t’envoie cette petite lettre, pour te souhaiter une douce nuit.
+Une nuit pleine de sérénité, de lumière intérieure, et de rêves paisibles.
+
+J’espère que le silence de la nuit te bercera,
+que les étoiles viendront chuchoter de belles choses à ton oreille…
+
+Et peut-être que demain, on s’écrira encore… un peu plus proches qu’hier.
+
+Bonne nuit Aina. Que ton sommeil soit beau comme ton sourire.
+
+– Balsama 💫
+    </p>
+    <div class="signature"></div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/28/audio_2f9a0ad432.mp3" type="audio/mpeg">
+    Votre navigateur ne supporte pas l'audio.
+  </audio>
+</body>
+</html>
