@@ -32,33 +32,28 @@
       100% { background-position: -10000px 5000px; }
     }
 
-    .envelope {
-      width: 300px;
-      height: 200px;
-      position: relative;
-      cursor: pointer;
-      animation: pulse 2s infinite;
-    }
-
-    .envelope::before, .envelope::after {
-      content: '';
+    .butterflies {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: #fff;
-      border-radius: 5px;
+      background: transparent url('https://media.giphy.com/media/dU1bBQXwV8aNW/giphy.gif') repeat-x;
+      background-size: 100px;
+      top: 0;
+      animation: fly 60s linear infinite;
+      z-index: 1;
     }
 
-    .envelope::before {
-      transform: rotateX(0deg);
-      transform-origin: top;
-      background: #f2d7d5;
+    @keyframes fly {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 0; }
+    }
+
+    .envelope-container {
+      width: 300px;
+      height: 220px;
+      background: url('https://cdn.pixabay.com/photo/2021/01/19/11/47/letter-5929924_1280.png') no-repeat center/contain;
+      cursor: pointer;
       z-index: 2;
-      transition: transform 1s ease;
-    }
-
-    .envelope.opened::before {
-      transform: rotateX(-180deg);
     }
 
     .letter {
@@ -72,6 +67,8 @@
       backdrop-filter: blur(6px);
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
       animation: fadeIn 2s ease forwards;
+      position: relative;
+      z-index: 3;
     }
 
     h1 {
@@ -85,26 +82,29 @@
       font-size: 1.2rem;
       white-space: pre-wrap;
       line-height: 1.8;
-      border-right: .15em solid #fff;
-      overflow: hidden;
-      width: 0;
-      animation: typing 16s steps(120, end), blink .75s step-end infinite;
+      font-family: 'Parisienne', cursive;
+      color: #ffe6e6;
+      position: relative;
     }
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+    .pen {
+      width: 40px;
+      height: 40px;
+      background: url('https://cdn-icons-png.flaticon.com/512/1198/1198293.png') no-repeat center/contain;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: write 30s linear forwards;
     }
 
-    @keyframes blink {
-      from, to { border-color: transparent; }
-      50% { border-color: #fff; }
+    @keyframes write {
+      0% { top: 0; left: 0; opacity: 1; }
+      100% { top: 95%; left: 100%; opacity: 0; }
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     audio {
@@ -114,12 +114,14 @@
 </head>
 <body>
   <div class="stars"></div>
+  <div class="butterflies"></div>
 
-  <div class="envelope" id="envelope"></div>
+  <div class="envelope-container" id="envelope"></div>
 
   <div class="letter" id="letter">
     <h1>Lettre pour Aina 🌙</h1>
     <div class="message">
+      <div class="pen"></div>
 Ma chère Aina,
 
 Il est tard, la lune s’est levée, et je pense à toi.
@@ -150,11 +152,8 @@ Bonne nuit Aina. Que ton sommeil soit beau comme ton sourire.
     const letter = document.getElementById('letter');
 
     envelope.addEventListener('click', () => {
-      envelope.classList.add('opened');
-      setTimeout(() => {
-        envelope.style.display = 'none';
-        letter.style.display = 'flex';
-      }, 1000);
+      envelope.style.display = 'none';
+      letter.style.display = 'flex';
     });
   </script>
 </body>
